@@ -51,4 +51,44 @@ labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
 
 
+# ================
+
+
+# Splitting the dataset into the Training set and Test set
+
+from sklearn.model_selection import train_test_split
+# test size 20%
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+
+# =============================================================================
+# Feature Scaling
+# # ex. salary and age not on same scale, euclidean distance will be dominated by the salart
+# 31000 96100000
+# 21    441      in equation, 441 won'te exist as it will be dominated by 9610000
+# even if ML algo not based on Euclidean dist, like dicision trees, it will make alg converge faster
+# =============================================================================
+# scale using standardisation or normalisation
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+# for training set we have to fit, then transform
+X_train = sc_X.fit_transform(X_train)
+# sc object already fitted on the traingn set, just transoform
+X_test = sc_X.transform(X_test)
+# do we need to scale dumy vars? dependes , lose imterpretation of belonging to specific country
+# we will scale sin e we have no imterpretation to make here
+
+
+# no need fo future scaling of dependent var
+# bu for regression for a dependent var with large scale of values, we would need to apply
+
+#sc_y = StandardScaler()
+#y_train = sc_y.fit_transform(y_train)
+
+
+
+
+
+
+
 
