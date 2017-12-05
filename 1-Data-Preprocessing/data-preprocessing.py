@@ -36,6 +36,10 @@ X[:, 1:3] = imputer.transform(X[:, 1:3])
 # Encoding the Independent Variable
 
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+# Label-encoder transfers the data from string categories i.e. 'Gernamy','France','Switzerland', etc to numerical labels i.e. 1,2,3. 
+# One-hot encoder transfers this numerical labels into one-hot-encoded bits i.e. 100, 010, 001,
+
+
 labelencoder_X = LabelEncoder()
 
 # for all rows for first column (country), encode
